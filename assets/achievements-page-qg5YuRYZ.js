@@ -1,0 +1,1 @@
+import{u as i,a as c,i as n,r as u,g as o,j as e,B as p,T as b,b as m,t as d}from"./index-Fy_PeeUM.js";const h=()=>{const s=i(),t=c(),a=n(m),r=d(t);return u.useEffect(()=>{s(o())},[s]),e.jsx(p,{typeTitle:"breadcrumb",children:e.jsx(b,{centered:t.xs,style:{height:"100%"},tabBarGutter:r,items:a})})};export{h as default};
