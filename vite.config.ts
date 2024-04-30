@@ -2,12 +2,15 @@ import path from 'path';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 /* eslint-enable  import/no-extraneous-dependencies */
 import svgr from 'vite-plugin-svgr';
 
-export default defineConfig(({ command }) => ({
-    base: command === 'build' ? '/Yau1heni/' : '/',
+export default defineConfig(({ command, mode }) => {
+    const env = loadEnv(mode, process.cwd())
+
+    return {
+    base: command === 'build' ? env.VITE_API_BASE_ROUTE_PROD : env.VITE_API_BASE_ROUTE_DEV,
     plugins: [
         react(),
         svgr({
@@ -42,4 +45,4 @@ export default defineConfig(({ command }) => ({
             '@services': path.resolve(__dirname, 'src/services'),
         },
     },
-}));
+}})

@@ -3,7 +3,7 @@ import { store } from '@redux/configure-store.ts';
 import axios from 'axios';
 
 export const instance = axios.create({
-    baseURL: 'https://marathon-api.clevertec.ru/',
+    baseURL: import.meta.env.VITE_API_BASE_URL,
     withCredentials: true,
 });
 
