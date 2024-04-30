@@ -1,7 +1,7 @@
-import { push } from 'redux-first-history';
 import { AndroidFilled, AppleFilled } from '@ant-design/icons';
 import { Paths } from '@common-types/routes';
 import { useAppDispatch } from '@hooks/typed-react-redux-hooks.ts';
+import { navigateTo } from '@utils/navigate-to';
 import { Button, Card, Col, Row, Typography } from 'antd';
 import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 
@@ -16,7 +16,7 @@ export const Footer = () => {
         : { letterSpacing: 'var(--letter-spacing-m)' };
 
     const navigateToFeedbackHandler = () => {
-        dispatch(push(Paths.FEEDBACKS));
+        navigateTo({ dispatch, toPath: Paths.FEEDBACKS });
     };
 
     return (

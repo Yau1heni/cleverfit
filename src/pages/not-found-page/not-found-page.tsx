@@ -1,14 +1,14 @@
 import { FC } from 'react';
-import { push } from 'redux-first-history';
 import { Paths } from '@common-types/routes';
 import { BasicLayout } from '@components/layout';
 import { useAppDispatch } from '@hooks/typed-react-redux-hooks.ts';
+import { navigateTo } from '@utils/navigate-to';
 import { Button, Card, Result } from 'antd';
 
 export const NotFoundPage: FC = () => {
     const dispatch = useAppDispatch();
     const goToMainHandler = () => {
-        dispatch(push(Paths.MAIN));
+        navigateTo({ dispatch, toPath: Paths.MAIN });
     };
 
     return (

@@ -1,4 +1,3 @@
-import { push } from 'redux-first-history';
 import { Nullable } from '@common-types/auth';
 import { Paths } from '@common-types/routes';
 import {
@@ -21,6 +20,7 @@ import { createAppAsyncThunk } from '@hooks/typed-react-redux-hooks.ts';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { trainingServices } from '@services/training-services';
 import { formatDate } from '@utils/format-date';
+import { navigateTo } from '@utils/navigate-to';
 
 export const emptyExercise = {
     name: '',
@@ -270,7 +270,7 @@ export const getTrainings = createAppAsyncThunk<
     try {
         const res = await trainingServices.getTraining(name);
 
-        if (goToPath !== null) dispatch(push(goToPath));
+        if (goToPath !== null) navigateTo({ dispatch, toPath: goToPath });
 
         return res.data;
     } catch (e) {

@@ -18,7 +18,9 @@ export const App = () => {
     return (
         <Suspense fallback={<Loader />}>
             <div className={styles.app}>
-                <HistoryRouter history={history}>{routes}</HistoryRouter>
+                <HistoryRouter history={history} basename={import.meta.env.BASE_URL}>
+                    {routes}
+                </HistoryRouter>
             </div>
         </Suspense>
     );

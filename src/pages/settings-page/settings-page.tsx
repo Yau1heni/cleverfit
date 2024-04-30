@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { push } from 'redux-first-history';
 import free from '@assets/image/free.png';
 import pro from '@assets/image/pro.png';
 import proNoActive from '@assets/image/pro-no-active.png';
@@ -12,6 +11,7 @@ import { SettingsAdditional, SettingsTariffCard } from '@components/settings';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks.ts';
 import { payTariff, profileActions, profileSelectors } from '@redux/slices';
 import { formatDate } from '@utils/format-date';
+import { navigateTo } from '@utils/navigate-to';
 import { Button, Row, Typography } from 'antd';
 import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 
@@ -48,11 +48,11 @@ export const SettingsPage = () => {
     };
 
     const goToFeedbackHandler = () => {
-        dispatch(push(Paths.FEEDBACKS));
+        navigateTo({ dispatch, toPath: Paths.FEEDBACKS });
     };
 
     const goBackHandler = () => {
-        dispatch(push(state.from));
+        navigateTo({ dispatch, toPath: state.from });
     };
 
     return (

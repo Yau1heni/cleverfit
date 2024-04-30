@@ -1,4 +1,3 @@
-import { push, replace } from 'redux-first-history';
 import {
     AuthData,
     AuthInitialState,
@@ -13,6 +12,7 @@ import { LocalStorageKeys } from '@constants/local-storage-keys.ts';
 import { createAppAsyncThunk } from '@hooks/typed-react-redux-hooks.ts';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { authServices } from '@services/auth-services';
+import { navigateTo } from '@utils/navigate-to';
 import { isAxiosError } from 'axios';
 
 const initialState: AuthInitialState = {
@@ -84,16 +84,32 @@ export const registration = createAppAsyncThunk<void, AuthData>(
         try {
             if (data !== null) {
                 await authServices.registration({ email: data.email, password: data.password });
-                dispatch(push(Paths.SUCCESS, { from: data.pathname }));
+                // dispatch(push(Paths.SUCCESS, { from: data.pathname }));
+                navigateTo({ dispatch, toPath: Paths.SUCCESS, currentPath: data.pathname });
             }
         } catch (e) {
             if (isAxiosError(e)) {
                 if (e.response?.status === StatusCode.USER_EXISTS) {
-                    dispatch(push(Paths.ERROR_USER_EXIST, { from: data?.pathname }));
+                    // dispatch(push(Paths.ERROR_USER_EXIST, { from: data?.pathname }));
+                    navigateTo({
+                        dispatch,
+                        toPath: Paths.ERROR_USER_EXIST,
+                        currentPath: data?.pathname,
+                    });
                 } else {
-                    dispatch(push(Paths.ERROR_REGISTRATION, { from: data?.pathname }));
+                    // dispatch(push(Paths.ERROR_REGISTRATION, { from: data?.pathname }));
+                    navigateTo({
+                        dispatch,
+                        toPath: Paths.ERROR_REGISTRATION,
+                        currentPath: data?.pathname,
+                    });
                 }
-            } else dispatch(push(Paths.ERROR_REGISTRATION, { from: data?.pathname }));
+            } else
+                navigateTo({
+                    dispatch,
+                    toPath: Paths.ERROR_REGISTRATION,
+                    currentPath: data?.pathname,
+                });
         }
     },
 );
@@ -105,7 +121,7 @@ export const retryRegistration = createAppAsyncThunk<void, void>(
         const data = getState().auth?.registrationData;
 
         try {
-            dispatch(push(Paths.REGISTRATION));
+            navigateTo({ dispatch, toPath: Paths.REGISTRATION });
             if (data !== null) dispatch(registration(data));
         } catch (e) {
             if (isAxiosError(e)) {
@@ -132,12 +148,12 @@ export const login = createAppAsyncThunk<void, AuthData>(
                 } else {
                     dispatch(authActions.setAccessToken({ accessToken: res.data.accessToken }));
                 }
-
-                dispatch(push(Paths.MAIN));
+                navigateTo({ dispatch, toPath: Paths.MAIN });
             }
         } catch (e) {
             if (isAxiosError(e)) {
-                dispatch(push(Paths.ERROR_LOGIN, { from: data?.pathname }));
+                // dispatch(push(Paths.ERROR_LOGIN, { from: data?.pathname }));
+                navigateTo({ dispatch, toPath: Paths.ERROR_LOGIN, currentPath: data?.pathname });
             }
         }
     },
@@ -151,7 +167,8 @@ export const checkEmail = createAppAsyncThunk<void, CheckEmail>(
         try {
             if (data !== null) {
                 await authServices.checkEmail({ email: data.email });
-                dispatch(push(Paths.CONFIRM_EMAIL, { from: data.pathname }));
+                navigateTo({ dispatch, toPath: Paths.CONFIRM_EMAIL, currentPath: data.pathname });
+                // dispatch(push(Paths.CONFIRM_EMAIL, { from: data.pathname }));
             }
         } catch (e) {
             if (isAxiosError(e)) {
@@ -159,12 +176,26 @@ export const checkEmail = createAppAsyncThunk<void, CheckEmail>(
                     e.response?.status === StatusCode.NOT_FOUND_404 ||
                     e.response?.data.message === 'Email не найден'
                 ) {
-                    dispatch(push(Paths.ERROR_CHECK_EMAIL_NO_EXIST, { from: data?.pathname }));
+                    navigateTo({
+                        dispatch,
+                        toPath: Paths.ERROR_CHECK_EMAIL_NO_EXIST,
+                        currentPath: data?.pathname,
+                    });
+                    // dispatch(push(Paths.ERROR_CHECK_EMAIL_NO_EXIST, { from: data?.pathname }));
                 } else {
-                    dispatch(push(Paths.ERROR_CHECK_EMAIL, { from: data?.pathname }));
+                    navigateTo({
+                        dispatch,
+                        toPath: Paths.ERROR_CHECK_EMAIL,
+                        currentPath: data?.pathname,
+                    });
+                    // dispatch(push(Paths.ERROR_CHECK_EMAIL, { from: data?.pathname }));
                 }
             } else {
-                dispatch(push(Paths.ERROR_CHECK_EMAIL, { from: data?.pathname }));
+                navigateTo({
+                    dispatch,
+                    toPath: Paths.ERROR_CHECK_EMAIL,
+                    currentPath: data?.pathname,
+                });
             }
         }
     },
@@ -179,7 +210,9 @@ export const retryCheckEmail = createAppAsyncThunk<void, void>(
         try {
             if (data !== null) {
                 dispatch(checkEmail(data));
-                dispatch(push(Paths.REGISTRATION, { from: data.pathname }));
+                navigateTo({ dispatch, toPath: Paths.REGISTRATION, currentPath: data.pathname });
+
+                // dispatch(push(Paths.REGISTRATION, { from: data.pathname }));
             }
         } catch (e) {
             if (isAxiosError(e)) {
@@ -198,7 +231,8 @@ export const confirmEmail = createAppAsyncThunk<EmailResponse, string>(
             if (data !== null) {
                 const res = await authServices.confirmEmail({ email: data.email, code });
 
-                dispatch(push(Paths.CHANGE_PASSWORD, { from: data?.pathname }));
+                // dispatch(push(Paths.CHANGE_PASSWORD, { from: data?.pathname }));
+                navigateTo({ dispatch, toPath: Paths.CHANGE_PASSWORD, currentPath: data.pathname });
 
                 return res.data;
             }
@@ -221,12 +255,22 @@ export const changePassword = createAppAsyncThunk<void, ChangePasswordData>(
                     password: data.password,
                     confirmPassword: data.confirmPassword,
                 });
-                dispatch(replace(Paths.SUCCESS_CHANGE_PASSWORD, { from: data.pathname }));
+                navigateTo({
+                    dispatch,
+                    toPath: Paths.SUCCESS_CHANGE_PASSWORD,
+                    currentPath: data.pathname,
+                });
+                // dispatch(replace(Paths.SUCCESS_CHANGE_PASSWORD, { from: data.pathname }));
             }
         } catch (e) {
             if (isAxiosError(e)) {
                 if (e.response?.status) {
-                    dispatch(push(Paths.ERROR_CHANGE_PASSWORD, { from: data?.pathname }));
+                    navigateTo({
+                        dispatch,
+                        toPath: Paths.ERROR_CHANGE_PASSWORD,
+                        currentPath: data?.pathname,
+                    });
+                    // dispatch(push(Paths.ERROR_CHANGE_PASSWORD, { from: data?.pathname }));
                 }
             }
         }
@@ -240,7 +284,8 @@ export const retryChangePassword = createAppAsyncThunk<void, void>(
         const data = getState().auth.changePasswordData;
 
         try {
-            dispatch(push(Paths.CHANGE_PASSWORD, { from: data?.pathname }));
+            navigateTo({ dispatch, toPath: Paths.CHANGE_PASSWORD, currentPath: data?.pathname });
+            // dispatch(push(Paths.CHANGE_PASSWORD, { from: data?.pathname }));
             if (data !== null) dispatch(changePassword(data));
         } catch (e) {
             rejectWithValue(e);
