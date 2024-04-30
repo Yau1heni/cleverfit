@@ -1,0 +1,55 @@
+@import 'antd/dist/antd.less';
+@import './assets/styles/variables/colors.css';
+@import 'assets/styles/variables/gaps.css';
+@import 'assets/styles/variables/fonts.css';
+
+.ant-typography {
+    color: var(--character-light-title-85);
+}
+
+.ant-menu-vertical .ant-menu-item:not(:last-child) {
+    margin-bottom: var(--gap-m);
+    overflow: visible;
+}
+
+.ant-card-body {
+    padding: var(--gap-xs) var(--gap-xl);
+    text-align: center;
+}
+
+.ant-btn {
+    font-size: var(--font-size-m);
+    line-height: var(--line-height);
+}
+
+.ant-form-item-explain {
+    font-weight: var(--font-weight-l);
+    font-size: var(--font-size-xs);
+}
+
+.ant-layout-footer {
+    background: none;
+    padding: 35px 30px;
+}
+
+@media (max-width: 576px) {
+    .ant-layout-footer {
+        padding: 0;
+    }
+    .ant-menu-vertical .ant-menu-item {
+        margin: 0;
+        padding-left: var(--gap-3xs);
+    }
+    .ant-card-body {
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+

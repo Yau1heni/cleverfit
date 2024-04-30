@@ -1,0 +1,5 @@
+.button {
+    font-weight: var(--font-weight-l);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing-s);
+}

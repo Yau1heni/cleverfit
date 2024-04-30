@@ -1,0 +1,4 @@
+:global .add-exercise-drawer {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-xl);
+}

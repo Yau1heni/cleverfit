@@ -1,0 +1,10 @@
+.backgroundImageContainer {
+    background: url('@assets/image/enter-page-light.png') center/cover;
+}
+
+.blur {
+    backdrop-filter: blur(6px);
+    background: rgba(121, 156, 212, 0.5);
+    height: 100vh;
+    width: 100%;
+}

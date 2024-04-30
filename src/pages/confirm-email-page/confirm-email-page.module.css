@@ -1,0 +1,34 @@
+.confirmEmailPage {
+    width: 539px;
+    padding: var(--padding-xl);
+    background: var(--neutral-gray-1);
+}
+
+:global .ant-result-extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-xl);
+}
+
+.character {
+    border: none;
+}
+
+.characterError {
+    border: 1px solid var(--character-light-error);
+}
+
+.characterInactive {
+    background: var(--neutral-gray-1);
+}
+
+@media (max-width: 768px) {
+    .confirmEmailPage {
+        width: 328px;
+        padding: var(--padding-s);
+    }
+    .verificationInputContainer {
+        width: 280px;
+    }
+}

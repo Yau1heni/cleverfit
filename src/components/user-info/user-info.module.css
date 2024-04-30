@@ -1,0 +1,13 @@
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-s);
+    margin: var(--gap-s);
+}
+
+@media (max-width: 576px) {
+    .userInfo {
+        flex-direction: row;
+    }
+}

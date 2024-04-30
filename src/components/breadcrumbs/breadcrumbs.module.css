@@ -1,0 +1,4 @@
+.breadcrumbs {
+    background: var(--primary-light-1);
+    padding-top: var(--gap-m);
+}

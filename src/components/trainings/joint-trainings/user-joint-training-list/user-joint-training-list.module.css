@@ -1,0 +1,6 @@
+.listItemContainer {
+    padding: var(--gap-s);
+    background: var(--primary-light-1);
+    margin-right: var(--gap-m);
+    gap: var(--gap-xl);
+}

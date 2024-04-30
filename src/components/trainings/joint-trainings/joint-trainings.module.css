@@ -1,0 +1,42 @@
+.textContainer {
+    padding: var(--gap-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--neutral-gray-4);
+}
+
+.textMain {
+    font-size: var(--gap-xl);
+    font-weight: var(--font-weight-xl);
+    text-align: center;
+}
+
+.textSecondary {
+    margin: var(--gap-xl);
+    text-align: center;
+}
+
+.buttonContainer {
+    gap: 132px;
+    padding: var(--gap-m);
+    margin-bottom: var(--gap-m);
+    background: var(--neutral-gray-4);
+}
+
+:global .ant-list-pagination {
+    text-align: left !important;
+}
+
+@media (max-width: 1024px) {
+    .buttonContainer {
+        gap: var(--gap-4xl);
+    }
+}
+
+@media (max-width: 576px) {
+    .tabText {
+        font-size: var(--gap-s);
+        font-weight: var(--font-weight-l);
+    }
+}

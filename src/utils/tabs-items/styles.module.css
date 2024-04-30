@@ -1,0 +1,19 @@
+.tabText {
+    font-size: var(--gap-xl);
+    font-weight: var(--font-weight-xl);
+    line-height: var(--line-height);
+}
+
+@media (max-width: 1200px) {
+    .tabText {
+        font-size: var(--gap-l);
+        font-weight: var(--font-weight-l);
+    }
+}
+
+@media (max-width: 768px) {
+    .tabText {
+        font-size: var(--gap-s);
+        font-weight: var(--font-weight-l);
+    }
+}

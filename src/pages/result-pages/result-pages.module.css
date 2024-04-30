@@ -1,0 +1,20 @@
+.container {
+    width: 539px;
+    padding: var(--padding-xl);
+    background: var(--neutral-gray-1);
+}
+
+:global .ant-result-title {
+    font-weight: var(--font-weight-xl);
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height);
+    text-align: center;
+    color: var(--character-light-title-85);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 328px;
+        padding: var(--padding-s);
+    }
+}

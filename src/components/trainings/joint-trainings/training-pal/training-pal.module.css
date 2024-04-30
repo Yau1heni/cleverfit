@@ -1,0 +1,9 @@
+.container {
+    margin-bottom: var(--gap-s);
+}
+
+.userInfo {
+    gap: var(--gap-xs);
+    margin-bottom: var(--gap-xs);
+    word-wrap: break-word;
+}

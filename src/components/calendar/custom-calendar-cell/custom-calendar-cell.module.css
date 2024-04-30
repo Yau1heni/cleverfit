@@ -1,0 +1,13 @@
+.cellContent {
+    width: 144px;
+    height: 119px;
+}
+
+.cellCalendar {
+    background-color: var(--neutral-gray-1);
+    display: block;
+    width: auto;
+    height: auto;
+    margin: var(--gap-2xs);
+    padding: 4px 8px 0;
+}

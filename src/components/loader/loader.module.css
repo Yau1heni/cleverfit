@@ -1,0 +1,21 @@
+.loaderContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(6px);
+    background: rgba(121, 156, 212, 0.5);
+    z-index: 10;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+}

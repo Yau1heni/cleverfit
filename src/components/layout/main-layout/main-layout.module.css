@@ -1,0 +1,7 @@
+.backgroundImageContainer {
+    background: center / cover, lightgray 50% / cover url('@assets/image/main-page-light.png');
+}
+
+.breadcrumbContainer {
+    padding-top: var(--gap-m);
+}

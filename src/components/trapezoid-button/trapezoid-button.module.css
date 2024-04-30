@@ -1,0 +1,34 @@
+.trapezoid {
+    top: 500px;
+    position: absolute;
+    height: 60px;
+    border-left: var(--gap-l) solid var(--neutral-gray-1);
+    border-bottom: var(--gap-s) solid transparent;
+    border-top: var(--gap-s) solid transparent;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.trapezoid:hover {
+    border-left: var(--gap-l) solid var(--primary-light-2);
+}
+
+.trapezoid span {
+    content: '';
+    position: absolute;
+    top: var(--gap-2xs);
+    right: var(--gap-4xs);
+}
+
+@media (max-width: 1024px) {
+    .trapezoid {
+        top: 550px;
+    }
+}
+
+@media (max-width: 576px) {
+    .trapezoid {
+        top: var(--gap-l);
+        transition: left 0.2s ease-in-out;
+    }
+}

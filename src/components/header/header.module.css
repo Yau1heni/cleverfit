@@ -1,0 +1,27 @@
+.header {
+    padding: 10px 20px 28px;
+}
+
+.text {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-3xl);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing-s);
+}
+
+@media (max-width: 1024px) {
+    .text {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-xl);
+    }
+}
+@media (max-width: 768px) {
+    .text {
+        font-size: var(--font-size-l);
+    }
+}
+@media (max-width: 480px) {
+    .header {
+        padding-bottom: var(--gap-xs);
+    }
+}

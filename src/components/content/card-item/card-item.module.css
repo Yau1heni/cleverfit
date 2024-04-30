@@ -1,0 +1,6 @@
+.text {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-l);
+    white-space: break-spaces;
+    letter-spacing: var(--letter-spacing-m);
+}

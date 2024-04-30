@@ -1,0 +1,25 @@
+.backgroundImageContainer {
+    background: center / cover, lightgray 50% / cover url('@assets/image/main-page-light.png');
+}
+
+.backgroundImageContainerSettings {
+    background: var(--neutral-gray-3);
+}
+
+.header {
+    background: var(--primary-light-1);
+    padding: 16px 24px;
+}
+
+.content {
+    margin: var(--gap-2xl);
+    padding: var(--gap-xl);
+    background: var(--neutral-gray-1);
+    min-height: calc(100vh - 134px);
+}
+
+@media (max-width: 480px) {
+    .content {
+        margin: var(--gap-l) 0;
+    }
+}

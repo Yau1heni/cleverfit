@@ -1,0 +1,9 @@
+.renderItemContainer {
+    gap: var(--gap-m);
+    margin-top: var(--gap-3xs);
+}
+
+.renderItem {
+    margin-bottom: var(--gap-3xs);
+    color: var(--primary-light-5);
+}

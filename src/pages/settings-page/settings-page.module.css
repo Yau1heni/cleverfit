@@ -1,0 +1,20 @@
+.cardWrapper {
+    display: flex;
+    gap: var(--gap-xl);
+    margin-bottom: 32px;
+}
+
+.additionalWrapper {
+    margin-bottom: 115px;
+}
+
+@media (max-width: 480px) {
+    .cardWrapper {
+        margin-top: var(--gap-xl);
+        width: 312px;
+        flex-direction: column;
+    }
+    .additionalWrapper {
+        margin-bottom: var(--gap-xl);
+    }
+}

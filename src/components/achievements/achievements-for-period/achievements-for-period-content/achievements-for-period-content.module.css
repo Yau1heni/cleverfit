@@ -1,0 +1,38 @@
+.achievementsForPeriodContent {
+    display: flex;
+}
+
+.achievementsForMonth {
+    flex-direction: column;
+}
+
+.exercisesInfoContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pieContainer {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    .pieContainer {
+        width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .achievementsForPeriodContent {
+        align-content: center;
+        justify-content: center;
+    }
+    .exercisesInfoContainer {
+        flex-direction: column;
+    }
+    .pieContainer {
+        width: 100%;
+    }
+}

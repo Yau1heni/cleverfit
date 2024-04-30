@@ -1,0 +1,34 @@
+:global .ant-picker-calendar {
+    background: var(--primary-light-1);
+}
+:global .ant-picker-calendar-full :global .ant-picker-panel {
+    padding: var(--gap-2xl);
+    background: var(--primary-light-1);
+}
+:global .ant-select-arrow {
+    color: var(--neutral-gray-7);
+}
+@media (max-width: 576px) {
+    :global .ant-picker-calendar {
+        background: var(--neutral-gray-1);
+        margin-bottom: calc(100vh - 400px);
+    }
+    :global .ant-picker-cell :global .ant-picker-cell-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 37px;
+        height: 24px;
+    }
+    :global .ant-picker-calendar-header {
+        display: flex;
+        align-items: flex-end;
+        margin-left: var(--gap-m);
+        gap: var(--gap-xs);
+    }
+    :global .ant-picker-cell-in-view.ant-picker-cell-selected :global .ant-picker-cell-inner {
+        color: var(--character-light-title-85);
+        background: var(--neutral-gray-1);
+        border: 2px solid var(--primary-light-4);
+    }
+}

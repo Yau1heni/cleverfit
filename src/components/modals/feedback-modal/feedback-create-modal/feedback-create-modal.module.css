@@ -1,0 +1,13 @@
+.rating {
+    margin-bottom: var(--gap-m);
+}
+
+.textarea {
+    resize: vertical !important;
+}
+
+@media (max-width: 576px) {
+    :global .ant-modal-header {
+        padding: var(--gap-m);
+    }
+}

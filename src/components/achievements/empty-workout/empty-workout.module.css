@@ -1,0 +1,10 @@
+.emptyWorkout {
+    display: flex;
+    flex-direction: column;
+
+    height: calc(100vh - 360px);
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

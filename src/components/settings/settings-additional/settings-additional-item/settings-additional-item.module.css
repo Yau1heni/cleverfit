@@ -1,0 +1,21 @@
+.container {
+    max-width: 505px;
+    margin-bottom: var(--gap-m);
+}
+
+.text {
+    margin-right: 8px;
+    letter-spacing: var(--letter-spacing-m);
+}
+
+.icon {
+    color: var(--neutral-gray-7);
+    font-size: var(--font-size-m);
+}
+
+@media (max-width: 480px) {
+    .text {
+        font-size: var(--font-size-s);
+        font-weight: var(--font-weight-3xl);
+    }
+}
